@@ -3,12 +3,11 @@ import './App.css'
 import Header from './components/Header' 
 import Form from './components/Form'
 import Footer from './components/Footer'
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 function App() {
   const location = useLocation();
-  const [quote, setQuote] = useState('');
 
   let resName = location.pathname.replace("/place", "").replace("/", "").replace("-", " ")
 
@@ -16,40 +15,21 @@ function App() {
     document.title = resName;
   }, [resName])
 
-  useEffect(() => {
-    async function fetchQuote() {
-      try {
-        const res = await fetch('https://api.adviceslip.com/advice');
-        const data = await res.json();
-        setQuote(data.slip.advice);
-
-        // const data = await res.json();
-        // const random = data;
-        // setQuote(random.text);
-        // setAuthor(random.author || 'Unknown');
-      } catch (err) {
-        console.error('Quote fetch failed:', err);
-        setQuote('Something went wrong.');
-      }
-    }
-
-    fetchQuote();
-  }, []);
-
   return (
     <>
       <Header resName={resName} />
       <main>
         <div className="wrapper">
           <div className="main-content">
-            <h1>{resName}</h1>
+            <h1 className='main-content-h'>{resName}</h1>
             <br />
-            <p className="about">"<i>{quote}</i>"</p>
+            <p className="about">"<i>Where flavor meets comfort</i>"</p>
             <br />
             <p className="about">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-              Repellat nobis dignissimos numquam adipisci culpa, hic voluptatibus voluptatum totam. 
-              Numquam illo dolore velit quis ab et architecto voluptatum nulla! Similique, nisi!
+            Located in the heart of the city, Good Restaurant is a cozy space for breakfast lovers, casual lunch seekers, and dinner gatherings. We craft each dish with fresh ingredients, attention to detail, and a touch of care — because food should nourish more than just the body.
+Whether you're stopping by for a quick coffee or spending the evening with friends, you're always welcome here.<br/>
+📍 Open daily from 9:00 AM to 10:00 PM<br/>
+📞 Reservations: +48 XXX XXX XXX
             </p>
             <br />              
           </div>

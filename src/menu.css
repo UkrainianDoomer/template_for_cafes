@@ -2,16 +2,30 @@
     padding: 2rem;
     background-color: #f5edf0;
     min-height: 100vh;
-    margin-left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/src/assets/main-bck.jpeg");
+    background-color: #1d2d44;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 .menu-title {
+    font-family: "Allura", cursive;
+    font-weight: bolder;
+
+
     text-align: center;
+    font-weight: bolder;
     margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #1d2d44;
+    font-size: 3rem;
+    color: #f5edf0;
 }
 
 .gallery {
@@ -19,17 +33,30 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     justify-items: center;
+    padding: 36px 36px;
+    border: 1px solid #f5edf0;
+    border-radius: 16px;
+
+    background-color: #f5edf0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    margin-bottom: 36px;
 }
 
 .image-wrapper {
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
     position: relative;
     border-radius: 12px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
     background-color: #fff;
+
+    margin: 12px 12px;
 }
 
 .image-wrapper img {

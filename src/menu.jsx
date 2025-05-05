@@ -1,6 +1,7 @@
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Form from './components/Form';
 
 import './menu.css';
 
@@ -11,6 +12,13 @@ import shit from './assets/main-bck.jpeg';
 
 function Menu() { 
   const imgs = [
+    { src: babuska, caption: 'Babuska Vibes' },
+    { src: chach, caption: 'Chachapuri' },
+    { src: salad, caption: 'Fresh Salad' },
+    { src: shit, caption: 'Main View' },
+    { src: babuska, caption: 'Grandma Again' },
+    { src: salad, caption: 'Salad 2' },
+    { src: shit, caption: 'Scenery' },
     { src: babuska, caption: 'Babuska Vibes' },
     { src: chach, caption: 'Chachapuri' },
     { src: salad, caption: 'Fresh Salad' },
@@ -34,6 +42,7 @@ function Menu() {
           ))}
         </div>
       </main>
+      <Form />
       <Footer />
     </>
   );
