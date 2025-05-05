@@ -27,7 +27,9 @@ function App() {
             <br />
             <p className="about">
             Located in the heart of the city, Good Restaurant is a cozy space for breakfast lovers, casual lunch seekers, and dinner gatherings. We craft each dish with fresh ingredients, attention to detail, and a touch of care — because food should nourish more than just the body.
-Whether you're stopping by for a quick coffee or spending the evening with friends, you're always welcome here.<br/>
+              Whether you're stopping by for a quick coffee or spending the evening with friends, you're always welcome here.
+              <br />
+              <br />
 📍 Open daily from 9:00 AM to 10:00 PM<br/>
 📞 Reservations: +48 XXX XXX XXX
             </p>
