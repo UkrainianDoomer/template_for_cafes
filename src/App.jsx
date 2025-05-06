@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 function App() {
   const location = useLocation();
 
-  let resName = location.pathname.replace("/place", "").replace("/", "").replace("-", " ")
+  let resName = location.pathname.split("/")[2].replace("-", " ")
 
   useEffect(() => {
     document.title = resName;

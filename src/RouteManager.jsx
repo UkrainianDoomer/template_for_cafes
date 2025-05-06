@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { useLocation } from "react-router-dom";
 import App from './App';
 
+/**
+ * @deprecated This function is deprecated and may be removed in future versions.
+ */
 function RouteManager () {
     const location = useLocation();
 

@@ -6,6 +6,7 @@ import Menu from './menu.jsx'
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import App from './App.jsx';
 
 const RedirectToMenu = () => {
   const navigate = useNavigate();
@@ -31,11 +32,8 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<RedirectToGoodReustarant />} />
-        <Route path="/main" element={<RedirectToGoodReustarant />} />
-        <Route path="/place/menu" element={<RedirectToMenu />} />
-        <Route path="/place/*" element={<RouteManager />} />
-        <Route path="/menu" element={<Menu />} />
+        <Route path="/place/*/menu" element={<Menu />} />
+        <Route path="/place/*" element={<App />} />
       </Routes>
     </Router>
   </StrictMode>,
