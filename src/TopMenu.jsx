@@ -6,9 +6,10 @@ import MenuItem from "./MenuItem"
 import chach from './assets/chach.jfif';
 import salad from './assets/salad.jpg';
 import { GetImagesUrls } from "./menu";
+import { useRestaurant } from "./RestaurantContext";
 
 export default function TopMenu() {
-    const { id } = useParams(); // Access the `id` parameter here
+    const {id, name} = useRestaurant();
 
     const imgs = GetImagesUrls(5);
 

@@ -1,40 +1,25 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import RouteManager from './RouteManager.jsx'
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
+import { RestaurantProvider } from './RestaurantContext.jsx';
 import Menu from './menu.jsx'
-
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import App from './App.jsx';
+import NotFound from './components/NotFound.jsx';
 
-const RedirectToMenu = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate('/menu');
-  }, [navigate]);
-
-  return null;
-};
-
-const RedirectToGoodReustarant = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate('/place/Good-Reustarant');
-  }, [navigate]);
-
-  return null;
+function WithRestaurant() {
+  return <RestaurantProvider><Outlet/></RestaurantProvider>;
 }
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
-      <Routes>
-        <Route path="/place/:id/menu" element={<Menu />} />
-        <Route path="/place/:id" element={<App />} />
-      </Routes>
+        <Routes>
+          <Route element={<WithRestaurant/>}>
+            <Route path="/place/:id/menu" element={<Menu />} />
+            <Route path="/place/:id" element={<App />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
     </Router>
   </StrictMode>,
 )
