@@ -34,11 +34,7 @@ export default function Hero() {
   };
 
   return (
-    // <section
-    //   className="hero"
-    //   style={{ backgroundImage: `url(${meals[displayedIndex].img})` }}
-    // >
-        <section className="hero">
+    <section className="hero">
   {meals.map((meal, i) => (
     <img
       key={meal.id}
@@ -47,24 +43,31 @@ export default function Hero() {
       className={`hero-bg ${i === displayedIndex ? "active" : ""}`}
     />
   ))}
-      <div className="meal-selector">
-        {meals.map((meal, i) => (
-          <div
-            key={meal.id}
-            className={`meal-item ${
-              hoveredMeal === meal.id || currentIndex === i ? "active" : ""
-            }`}
-            onMouseEnter={() => setHoveredMeal(meal.id)}
-            onMouseLeave={() => setHoveredMeal(null)}
-            onClick={() => scrollToMeal(meal.id)}
-          >
-            {meal.name}
-            {(hoveredMeal === meal.id || currentIndex === i) && (
-              <span className="arrow">→</span>
-            )}
-          </div>
-        ))}
+
+  {/* === TEXT OVERLAY === */}
+  <div className="hero-overlay">
+    <h1 className="hero-title">Where Flavor Meets Soul</h1>
+    <p className="hero-subtitle">Savor the moment. Explore our handcrafted meals, made with love and local charm.</p>
+  </div>
+
+  {/* === MEAL SELECTOR === */}
+  <div className="meal-selector">
+    {meals.map((meal, i) => (
+      <div
+        key={meal.id}
+        className={`meal-item ${hoveredMeal === meal.id || currentIndex === i ? "active" : ""}`}
+        onMouseEnter={() => setHoveredMeal(meal.id)}
+        onMouseLeave={() => setHoveredMeal(null)}
+        onClick={() => scrollToMeal(meal.id)}
+      >
+        {meal.name}
+        {(hoveredMeal === meal.id || currentIndex === i) && (
+          <span className="arrow">→</span>
+        )}
       </div>
-    </section>
-  );
+    ))}
+  </div>
+</section>
+
+    );
 }
