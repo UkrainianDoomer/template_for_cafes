@@ -1,9 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import './Hero.css'
 import { Link, Navigate, useParams } from "react-router-dom";
+import { useRestaurant } from "./RestaurantContext";
 
 export default function Hero() {
-  const { id } = useParams();
+  const {id, name} = useRestaurant();
 
   const meals = [
     { id: "breakfast", name: "Breakfast", img: "/images/hero/breakfast.jpg" },
