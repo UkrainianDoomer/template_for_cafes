@@ -1,89 +1,11 @@
 .hero {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    transition: background-image 0.6s ease;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 2rem;
-  }
-  
-  .meal-selector {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 1.5rem;
-    border-radius: 16px;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }
-  
-  .meal-item {
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: #f5edf0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-  }
-  
-  .meal-item:hover {
-    transform: translateX(5px);
-  }
-  
-  .meal-item.active {
-    font-weight: 700;
-    color: #fff;
-  }
-  
-  .arrow {
-    margin-left: 10px;
-    font-size: 1.2rem;
-    color: #ffc3c3;
-  }
-  
-  .hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  z-index: 0;
-}
-
-.hero-bg.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-/* keep meal selector above */
-.meal-selector {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  z-index: 10;
-  /* ... (rest stays same) */
-}
-/* /////////////////////////////////////// */
-.hero {
     position: relative;
     height: 100vh;
     overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
   }
   
+  /* === Background images with fade === */
   .hero-bg {
     position: absolute;
     top: 0;
@@ -101,12 +23,97 @@
     z-index: 1;
   }
   
-  /* keep meal selector above */
+  /* === Text overlay === */
+  .hero-overlay {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 5;
+    color: #f5edf0;
+    padding: 1rem 2rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-family: 'Allura', cursive;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #f5edf0
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: auto;
+    color: #f5edf0
+  }
+  
+  /* === Meal selector block === */
   .meal-selector {
     position: absolute;
     bottom: 40px;
     left: 40px;
     z-index: 10;
-    /* ... (rest stays same) */
-  }
   
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* background: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 16px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); */
+  }
+
+.meal-item {
+position: relative;
+font-size: 1.4rem;
+font-weight: 400;
+color: #f5edf0;
+cursor: pointer;
+transition: all 0.3s ease;
+display: inline-block;
+padding-bottom: 4px;
+}
+
+/* Underline setup */
+.meal-item::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+height: 3px;
+width: 0%;
+background-color: #f5edf0;
+transition: width 0.3s ease;
+left: 50%;
+transform: translateX(-50%);
+}
+
+/* Trigger on hover or active state */
+.meal-item:hover::after,
+.meal-item.active::after {
+width: 100%;
+}
+
+/* Optional: Slight hover lift */
+.meal-item:hover {
+transform: translateX(5px);
+font-weight: 700;
+}
+
+.meal-item.active {
+    transform: translateX(5px);
+    font-weight: 700;
+}
+
+
+.arrow {
+margin-left: 10px;
+font-size: 1.2rem;
+color: #f5edf0;
+}

@@ -10,7 +10,7 @@ import { useLocation, useParams } from "react-router-dom";
 
 
 function App() {
-  const { id } = useParams(); // Access the `id` parameter here
+  const { id } = useParams();
   let resName = id.replace("-", " ")
 
   useEffect(() => {

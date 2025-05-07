@@ -11,6 +11,8 @@ import chach from './assets/chach.jfif';
 import salad from './assets/salad.jpg';
 import shit from './assets/main-bck.jpeg';
 
+// TODO: Divide Menu on types: Breakfast, Lunch, Dinner, Dessert and Drinks, 
+// for links in main menu 
 function Menu() { 
   const imgs = GetImagesUrls();
 

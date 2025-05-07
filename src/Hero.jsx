@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
-import "./Hero.css";
+import { useEffect, useState, useRef } from "react";
+import './Hero.css'
+import { Link, Navigate, useParams } from "react-router-dom";
 
 export default function Hero() {
+  const { id } = useParams();
+
   const meals = [
     { id: "breakfast", name: "Breakfast", img: "/images/hero/breakfast.jpg" },
     { id: "lunch", name: "Lunch", img: "/images/hero/lunch.jpg" },
@@ -11,19 +14,25 @@ export default function Hero() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [hoveredMeal, setHoveredMeal] = useState(null);
+  const intervalRef = useRef(null);
 
-  const displayedIndex = hoveredMeal
-    ? meals.findIndex((m) => m.id === hoveredMeal)
-    : currentIndex;
-
-  // Auto-slide every 5 seconds
+  // Auto-scroll function
   useEffect(() => {
-    const interval = setInterval(() => {
+    startAutoScroll();
+    return stopAutoScroll;
+  }, []);
+
+  const startAutoScroll = () => {
+    if (intervalRef.current) return; // prevent multiple intervals
+    intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % meals.length);
     }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  };
+
+  const stopAutoScroll = () => {
+    clearInterval(intervalRef.current);
+    intervalRef.current = null;
+  };
 
   // Smooth scroll on click
   const scrollToMeal = (mealId) => {
@@ -35,39 +44,39 @@ export default function Hero() {
 
   return (
     <section className="hero">
-  {meals.map((meal, i) => (
-    <img
-      key={meal.id}
-      src={meal.img}
-      alt={meal.name}
-      className={`hero-bg ${i === displayedIndex ? "active" : ""}`}
-    />
-  ))}
+      {meals.map((meal, i) => (
+        <img
+          key={meal.id}
+          src={meal.img}
+          alt={meal.name}
+          className={`hero-bg ${i === currentIndex ? "active" : ""}`}
+        />
+      ))}
 
-  {/* === TEXT OVERLAY === */}
-  <div className="hero-overlay">
-    <h1 className="hero-title">Where Flavor Meets Soul</h1>
-    <p className="hero-subtitle">Savor the moment. Explore our handcrafted meals, made with love and local charm.</p>
-  </div>
-
-  {/* === MEAL SELECTOR === */}
-  <div className="meal-selector">
-    {meals.map((meal, i) => (
-      <div
-        key={meal.id}
-        className={`meal-item ${hoveredMeal === meal.id || currentIndex === i ? "active" : ""}`}
-        onMouseEnter={() => setHoveredMeal(meal.id)}
-        onMouseLeave={() => setHoveredMeal(null)}
-        onClick={() => scrollToMeal(meal.id)}
-      >
-        {meal.name}
-        {(hoveredMeal === meal.id || currentIndex === i) && (
-          <span className="arrow">→</span>
-        )}
+      <div className="hero-overlay">
+        <h1 className="hero-title">Where Flavor Meets Soul</h1>
+        <p className="hero-subtitle">Savor the moment. Explore our handcrafted meals, made with love and local charm.</p>
       </div>
-    ))}
-  </div>
-</section>
 
-    );
+      <div className="meal-selector">
+        {meals.map((meal, i) => (
+          <Link
+            key={meal.id}
+            className={`meal-item ${currentIndex === i ? "active" : ""}`}
+            onMouseEnter={() => {
+              stopAutoScroll();
+              setCurrentIndex(i);
+            }}
+            onMouseLeave={() => {
+              startAutoScroll();
+            }}
+            to={`/place/${id}/menu#${meal.id}`}
+          >
+            {meal.name}
+            {currentIndex === i && <span className="arrow">→</span>}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
 }
