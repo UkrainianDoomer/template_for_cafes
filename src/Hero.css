@@ -1,0 +1,38 @@
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: background-image 0.6s ease;
+  }
+  
+  .meal-selector {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: rgba(245, 237, 240, 0.6);
+    padding: 16px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+  }
+  
+  .meal-item {
+    font-size: 1.2rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: font-weight 0.3s, transform 0.3s;
+  }
+  
+  .meal-item.active {
+    font-weight: 700;
+    transform: translateX(5px);
+  }
+  
+  .arrow {
+    font-weight: bold;
+    margin-left: 8px;
+  }
+  

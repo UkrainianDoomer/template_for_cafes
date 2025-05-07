@@ -2,6 +2,7 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Form from './components/Form';
+import MenuItem from './MenuItem';
 
 import './menu.css';
 
@@ -11,22 +12,7 @@ import salad from './assets/salad.jpg';
 import shit from './assets/main-bck.jpeg';
 
 function Menu() { 
-  const imgs = [
-    { src: babuska, caption: 'Babuska Vibes' },
-    { src: chach, caption: 'Chachapuri' },
-    { src: salad, caption: 'Fresh Salad' },
-    { src: shit, caption: 'Main View' },
-    { src: babuska, caption: 'Grandma Again' },
-    { src: salad, caption: 'Salad 2' },
-    { src: shit, caption: 'Scenery' },
-    { src: babuska, caption: 'Babuska Vibes' },
-    { src: chach, caption: 'Chachapuri' },
-    { src: salad, caption: 'Fresh Salad' },
-    { src: shit, caption: 'Main View' },
-    { src: babuska, caption: 'Grandma Again' },
-    { src: salad, caption: 'Salad 2' },
-    { src: shit, caption: 'Scenery' },
-  ];
+  const imgs = GetImagesUrls();
 
   return (
     <>
@@ -35,10 +21,7 @@ function Menu() {
         <h2 className="menu-title">Our Gallery</h2>
         <div className="gallery">
           {imgs.map((item, i) => (
-            <div className="image-wrapper" key={i}>
-              <img src={item.src} alt={`Gallery ${i + 1}`} />
-              <div className="image-text">{item.caption}</div>
-            </div>
+            <MenuItem key={i} src={item.src} caption={item.caption} index={i} />
           ))}
         </div>
       </main>
@@ -46,6 +29,17 @@ function Menu() {
       <Footer />
     </>
   );
+  }
+
+
+export function GetImagesUrls(max = -1) {
+  const images = Object.entries(import.meta.glob('./assets/images/*.{png,jpg,jpeg,jfif}', { eager: true }))
+    .map(([path, module]) => ({
+      src: module.default,
+      caption: path.split('/').pop().replace(/\.[^/.]+$/, '').replace(/_/g, ' ')
+    }));
+
+  return max === -1 ? images : images.slice(0, max);
 }
 
 export default Menu;

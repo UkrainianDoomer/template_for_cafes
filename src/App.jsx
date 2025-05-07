@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header' 
+import Hero from './Hero'
 import Form from './components/Form'
 import Footer from './components/Footer'
-import { useLocation } from "react-router-dom";
+import TopMenu from './TopMenu'
+import HighlightSection from './components/HighlightSection'
+import { useLocation, useParams } from "react-router-dom";
 
 
 function App() {
-  const location = useLocation();
-
-  let resName = location.pathname.split("/")[2].replace("-", " ")
+  const { id } = useParams(); // Access the `id` parameter here
+  let resName = id.replace("-", " ")
 
   useEffect(() => {
     document.title = resName;
@@ -18,7 +20,7 @@ function App() {
   return (
     <>
       <Header resName={resName} />
-      <main>
+      {/* <main>
         <div className="wrapper">
           <div className="main-content">
             <h1 className='main-content-h'>{resName}</h1>
@@ -35,12 +37,15 @@ function App() {
             </p>
             <br />              
           </div>
+        </div>
+      </main> */}
+        <Hero/>
           <button onClick={() => {
             const target = document.getElementById("form")
             window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
           }} id='to-bottom'>↓</button>
-        </div>
-      </main>
+      <HighlightSection/>
+      <TopMenu/>
       <Form/>
       <Footer/>
     </>

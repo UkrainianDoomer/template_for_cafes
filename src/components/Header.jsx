@@ -1,16 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 // import './Header.css'; // Assuming you have a CSS file for styling
 
-const Header = ({ resName }) => {
+const Header = () => {
+  const { id } = useParams(); // Access the `id` parameter here
+
+
+  let resName = id.replace("-", " ")
+
   return (
   <header>
     <div className="logo-text">
-      <h1>{resName ?? 'Restaurant Name'}</h1>
+      <Link to={`/place/${id}`}><h1>{resName ?? 'Restaurant Name'}</h1></Link>
     </div>
     <div className="nav-bar">
-      <Link to="/"><button><strong>Home</strong></button></Link>
-      <Link to="/menu"><button><strong>Menu</strong></button></Link>
+      <Link to={`/place/${id}`}><button><strong>Home</strong></button></Link>
+      <Link to={`/place/${id}/menu`}><button><strong>Menu</strong></button></Link>
       <button onClick={() => {
       const target = document.getElementById("footer")
       window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });

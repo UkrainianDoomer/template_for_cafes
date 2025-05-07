@@ -32,8 +32,8 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
       <Routes>
-        <Route path="/place/*/menu" element={<Menu />} />
-        <Route path="/place/*" element={<App />} />
+        <Route path="/place/:id/menu" element={<Menu />} />
+        <Route path="/place/:id" element={<App />} />
       </Routes>
     </Router>
   </StrictMode>,
