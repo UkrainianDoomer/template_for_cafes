@@ -1,9 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Hero.css";
 
 export default function Hero() {
-  const [hoveredMeal, setHoveredMeal] = useState(null);
-
   const meals = [
     { id: "breakfast", name: "Breakfast", img: "/images/hero/breakfast.jpg" },
     { id: "lunch", name: "Lunch", img: "/images/hero/lunch.jpg" },
@@ -12,24 +10,58 @@ export default function Hero() {
     { id: "drinks", name: "Drinks", img: "/images/hero/drinks.jpg" }
   ];
 
-  const bgImage = hoveredMeal ? meals.find(m => m.id === hoveredMeal).img : meals[0].img;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [hoveredMeal, setHoveredMeal] = useState(null);
+
+  const displayedIndex = hoveredMeal
+    ? meals.findIndex((m) => m.id === hoveredMeal)
+    : currentIndex;
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % meals.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Smooth scroll on click
+  const scrollToMeal = (mealId) => {
+    const el = document.getElementById(mealId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
-    <section
-      className="hero"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
+    // <section
+    //   className="hero"
+    //   style={{ backgroundImage: `url(${meals[displayedIndex].img})` }}
+    // >
+        <section className="hero">
+  {meals.map((meal, i) => (
+    <img
+      key={meal.id}
+      src={meal.img}
+      alt={meal.name}
+      className={`hero-bg ${i === displayedIndex ? "active" : ""}`}
+    />
+  ))}
       <div className="meal-selector">
-        {meals.map(meal => (
+        {meals.map((meal, i) => (
           <div
             key={meal.id}
-            className={`meal-item ${hoveredMeal === meal.id ? "active" : ""}`}
+            className={`meal-item ${
+              hoveredMeal === meal.id || currentIndex === i ? "active" : ""
+            }`}
             onMouseEnter={() => setHoveredMeal(meal.id)}
             onMouseLeave={() => setHoveredMeal(null)}
-            onClick={() => window.location.href = `/menu#${meal.id}`}
+            onClick={() => scrollToMeal(meal.id)}
           >
             {meal.name}
-            {hoveredMeal === meal.id && <span className="arrow"> →</span>}
+            {(hoveredMeal === meal.id || currentIndex === i) && (
+              <span className="arrow">→</span>
+            )}
           </div>
         ))}
       </div>
