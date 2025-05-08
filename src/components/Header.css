@@ -1,0 +1,50 @@
+/* Новый стиль для header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  header .logo-text h1 {
+    font-family: 'Allura', cursive;
+    font-size: 32px;
+    color: #F2C078;
+  }
+  
+  header .nav-bar button {
+    background: transparent;
+    border: none;
+    color: #EAEAEA;
+    font-size: 18px;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  header .nav-bar button:hover {
+    background-color: #FFD369;
+    color: #1E1E1E;
+    font-weight: bold;
+  }
+  
+  header .nav-bar .reservation-btn {
+    background-color: #FFD369;
+    color: #1E1E1E;
+    font-weight: bold;
+  }
+  
+  header .nav-bar .reservation-btn:hover {
+    background-color: #FF8C42;
+    color: #1E1E1E;
+  }
+  
