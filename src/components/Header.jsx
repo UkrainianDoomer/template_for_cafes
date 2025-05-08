@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
-// import './Header.css'; // Assuming you have a CSS file for styling
+import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
+import { useRestaurant } from '../RestaurantContext';
+import './Header.css';
 
 const Header = () => {
   const { id } = useParams(); // Access the `id` parameter here
