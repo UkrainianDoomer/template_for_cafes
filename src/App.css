@@ -140,45 +140,6 @@ body {
     height: auto;
     margin-top: 5px;
   }
-
-  header .nav-bar {
-    order: 3;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  header .nav-bar a {
-    flex: 0 1 auto;
-  }
-
-  header .nav-bar button {
-    width: 300px;
-    padding: 20px;
-    font-size: 1rem;
-    text-align: center;
-    border-radius: 8px;
-  }
-
-  /* ===== Reservation Form ===== */
-  .reservation form {
-    padding: 1rem;
-  }
-
-  .reservation .frst-form-row,
-  .reservation .scd-form-row {
-    flex-direction: column;
-  }
-
-  .reservation .frst-form-row div,
-  .reservation .scd-form-row div {
-    flex: 1 1 100%;
-    min-width: 100%;
-  }
-
   /* ===== Main Content Wrapper ===== */
   .wrapper {
     padding: 1rem;
