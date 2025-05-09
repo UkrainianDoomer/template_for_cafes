@@ -90,6 +90,12 @@ header {
     display: flex;
   }
 
+  header .nav-bar NavLink {
+    display: inline-block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
   /* button tweaks */
   header .nav-bar button {
     width: 90%;
