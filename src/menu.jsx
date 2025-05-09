@@ -4,12 +4,15 @@ import Footer from './components/Footer';
 import Form from './components/Form';
 import MenuItem from './MenuItem';
 
-import babuska from './assets/babuska_vibe.jpg';
-import chach from './assets/chach.jfif';
-import salad from './assets/salad.jpg';
-import shit from './assets/main-bck.jpeg';
-
 import './menu.css';
+import { menuItems } from './menuData';
+
+const groupedByType = MealSlides.map(({ id, name }) => ({
+  id,
+  name,
+  items: menuItems.filter(item => item.type === id),
+}));
+
 
 // TODO: Divide Menu on types: Breakfast, Lunch, Dinner, Dessert and Drinks, 
 // for links in main menu 
@@ -22,9 +25,20 @@ function Menu() {
       <main className='menu-wrapper'>
         <h2 className="menu-title">Our Gallery</h2>
         <div className="gallery">
-          {imgs.map((item, i) => (
+          {/* {imgs.map((item, i) => (
             <MenuItem key={i} src={item.src} caption={item.caption} index={i} />
+          ))} */}
+          {groupedByType.map(({ id, name, items }) => (
+            <section key={id} id={id} className="menu-section">
+              <h3 className="meal-type-title">{name}</h3>
+              <div className="gallery">
+                {items.map((item, i) => (
+                  <MenuItem key={i} src={item.src} caption={item.caption} />
+                ))}
+              </div>
+            </section>
           ))}
+
         </div>
       </main>
       <Form />
