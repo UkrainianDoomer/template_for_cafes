@@ -1,7 +1,9 @@
 import React from 'react';
 import './Footer.css';
+import { useRestaurant } from '../RestaurantContext';
 
 export default function Footer() {
+  const {id, name} = useRestaurant();
   return (
     <footer id="footer">
       <div className="footer-container">
@@ -60,7 +62,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-credits">
-        &copy; {new Date().getFullYear()} Good Restaurant. All rights reserved.
+        &copy; {new Date().getFullYear()} {name}. All rights reserved.
       </div>
     </footer>
   );

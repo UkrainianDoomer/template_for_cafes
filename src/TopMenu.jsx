@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import MenuItem from "./MenuItem"
 import chach from './assets/chach.jfif';
 import salad from './assets/salad.jpg';
-import { GetImagesUrls } from "./menu";
+import { GetTopImages } from "./menu";
 import { useRestaurant } from "./RestaurantContext";
 
 import './TopMenu.css'
@@ -11,7 +11,7 @@ import './TopMenu.css'
 export default function TopMenu() {
     const {id, name} = useRestaurant();
 
-    const imgs = GetImagesUrls(5);
+    const imgs = GetTopImages();
 
     return (
         <section className="topmenu">

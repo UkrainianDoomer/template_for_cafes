@@ -1,5 +1,5 @@
-import leftimg from '../assets/images/bon-vivant.jpg'
-import rightimg from '../assets/images/big-dodzy.jpg'
+import leftimg from '../assets/images/meat2.jpg'
+import rightimg from '../assets/images/meat.jpg'
 import './HighlightSection.css'
 
 export default function HighlightSection() {

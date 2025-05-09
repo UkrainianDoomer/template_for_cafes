@@ -1,8 +1,13 @@
-export default function MenuItem({ src, caption }) {
-    return (
-      <div className="image-wrapper">
-        <img src={src} alt={caption} />
-        <div className="image-text">{caption} {20}$</div>
+export default function MenuItem({ src, caption, price = 20 }) {
+  return (
+    <div className="menu-card">
+      <div className="menu-img-wrapper">
+        <img src={src} alt={caption} className="menu-img" />
       </div>
-    );
-  }
+      <div className="menu-details">
+        <h4>{caption}</h4>
+        <span>${price}</span>
+      </div>
+    </div>
+  );
+}
