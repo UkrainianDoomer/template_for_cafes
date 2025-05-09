@@ -17,6 +17,29 @@ function App() {
     document.title = name;
   }, [name])
 
+  useEffect(() => {
+  const handleScroll = () => {
+    const btn = document.getElementById("to-bottom");
+    const form = document.getElementById("form");
+
+    if (!btn || !form) return;
+
+    const formTop = form.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    // Hide when form is visible or below
+    if (formTop <= windowHeight * 0.9) {
+      btn.classList.add("hidden");
+    } else {
+      btn.classList.remove("hidden");
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+  
   return (
     <>
       <Suspense fallback={<Spinner />}>
