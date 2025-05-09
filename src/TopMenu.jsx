@@ -1,12 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 
-import './TopMenu.css'
-
 import MenuItem from "./MenuItem"
 import chach from './assets/chach.jfif';
 import salad from './assets/salad.jpg';
 import { GetImagesUrls } from "./menu";
 import { useRestaurant } from "./RestaurantContext";
+
+import './TopMenu.css'
 
 export default function TopMenu() {
     const {id, name} = useRestaurant();

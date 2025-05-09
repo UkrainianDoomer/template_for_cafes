@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import './App.css'
 import Header from './components/Header' 
 import { useRestaurant } from './RestaurantContext'
@@ -30,7 +30,9 @@ function App() {
         <button
           onClick={() => {
             const target = document.getElementById("form");
-            window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
+            const header = document.getElementById("header");
+            const h = target.offsetTop - header.clientHeight;
+            window.scrollTo({ top: h, behavior: "smooth" });
           }}
           id="to-bottom"
         >

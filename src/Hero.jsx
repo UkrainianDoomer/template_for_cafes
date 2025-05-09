@@ -1,20 +1,15 @@
 import { useEffect, useState, useRef } from "react";
 import './Hero.css'
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useRestaurant } from "./RestaurantContext";
+import { MealSlides } from "./RestaurantContext";
 
 export default function Hero() {
   const {id, name} = useRestaurant();
 
-  const meals = [
-    { id: "breakfast", name: "Breakfast", img: "/images/hero/breakfast.jpg" },
-    { id: "lunch", name: "Lunch", img: "/images/hero/lunch.jpg" },
-    { id: "dinner", name: "Dinner", img: "/images/hero/dinner.jpg" },
-    { id: "dessert", name: "Dessert", img: "/images/hero/dessert.jpg" },
-    { id: "drinks", name: "Drinks", img: "/images/hero/drinks.jpg" }
-  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const theme = MealSlides[currentIndex].priority;
   const intervalRef = useRef(null);
 
   // Auto-scroll function
@@ -26,7 +21,7 @@ export default function Hero() {
   const startAutoScroll = () => {
     if (intervalRef.current) return; // prevent multiple intervals
     intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % meals.length);
+      setCurrentIndex((prev) => (prev + 1) % MealSlides.length);
     }, 5000);
   };
 
@@ -35,17 +30,9 @@ export default function Hero() {
     intervalRef.current = null;
   };
 
-  // Smooth scroll on click
-  const scrollToMeal = (mealId) => {
-    const el = document.getElementById(mealId);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   return (
-    <section className="hero">
-      {meals.map((meal, i) => (
+    <section className={`hero theme-${theme}`}>
+      {MealSlides.map((meal, i) => (
         <img
           key={meal.id}
           src={meal.img}
@@ -60,7 +47,7 @@ export default function Hero() {
       </div>
 
       <div className="meal-selector">
-        {meals.map((meal, i) => (
+        {MealSlides.map((meal, i) => (
           <Link
             key={meal.id}
             className={`meal-item ${currentIndex === i ? "active" : ""}`}

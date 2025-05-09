@@ -4,12 +4,12 @@ import Footer from './components/Footer';
 import Form from './components/Form';
 import MenuItem from './MenuItem';
 
-import './menu.css';
-
 import babuska from './assets/babuska_vibe.jpg';
 import chach from './assets/chach.jfif';
 import salad from './assets/salad.jpg';
 import shit from './assets/main-bck.jpeg';
+
+import './menu.css';
 
 // TODO: Divide Menu on types: Breakfast, Lunch, Dinner, Dessert and Drinks, 
 // for links in main menu 

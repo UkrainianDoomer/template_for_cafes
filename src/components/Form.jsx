@@ -1,98 +1,83 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './Form.css';
+import { useRestaurant } from '../RestaurantContext';
 
-const Form = () => {
+export default function Form() {
+    const {id, name} = useRestaurant();
+  return (
+    <section className="form-section" id="form">
+      <div className="form-card">
+        <h2 className="form-title">Make a Reservation</h2>
+        <form
+          action="https://formsubmit.co/14af3c499b63487baff858f327e39249"
+          method="POST"
+        >
+          {/* Honeypot to deter bots */}
+          <input type="hidden" name="_next" value={`http://localhost:5173/place/${id}`} />
+          <input name="_formsubmit_id" type="text" style={{ display: 'none' }} />
 
-    // const [formData, setFormData] = useState({
-    //     name: '',
-    //     email: '',
-    //     phone: '',
-    //     date: '',
-    //     time: '',
-    //     guests: 1,
-    // });
-
-
-    return (
-        <section className="reservation" id="form">
-            <h2>Make a Reservation</h2>
-            <form
-                action="https://formsubmit.co/14af3c499b63487baff858f327e39249"
-                method="POST"
-            >
-            
-
-                <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html"/>
-                <input name="_formsubmit_id" type="text" style={{ display: 'none' }}></input>
-                <div className="frst-form-row">
-                    <div className="name-form">
-                        <label htmlFor="name">Name:</label>
-                        <input
-                    type="text" 
-                    id="name"
-                    name="name"
-                    placeholder="Your Name"
-                />
+          <div className="form-grid">
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your full name"
+                required
+              />
             </div>
-                <br />
-            <div className="email-form">   
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Your Email"
-                />
-            </div>
-                <br />
-            <div className="phone-form">        
-                <label htmlFor="phone">Phone:</label>
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Your Phone Number"
-                />
-            </div>
-                </div>
-                <br />
 
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@domain.com"
+                required
+              />
+            </div>
 
-                <div className="scd-form-row">
-                        <div className="date-form">
-                <label htmlFor="date">Date:</label>
-                <input
-                    type="date"
-                    id="date"
-                    name="date"
-                />
+            <div className="form-group">
+              <label htmlFor="phone">Phone</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="+1 (555) 123-4567"
+              />
             </div>
-                <br />
-                <div className="time-form">
-                <label htmlFor="time">Time:</label>
-                <input
-                    type="time"
-                    id="time"
-                    name="time"
-                />
-            </div>
-                <br />
-            <div className="guests-form">
-                <label htmlFor="guests">Number of Guests:</label>
-                <input
-                    type="number"
-                    id="guests"
-                    name="guests"
-                    min="1"
-                    placeholder="Number of Guests"
-                />
-            </div>
-                <br />
-                </div>
-            <button type="submit">Reserve Now</button>
-            
-            </form>
-        </section>
-    );
-};
 
-export default Form;
+            <div className="form-group">
+              <label htmlFor="date">Date</label>
+              <input id="date" name="date" type="date" required />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="time">Time</label>
+              <input id="time" name="time" type="time" required />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="guests">Guests</label>
+              <input
+                id="guests"
+                name="guests"
+                type="number"
+                min="1"
+                max="20"
+                defaultValue="2"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" className="form-submit-btn">
+            Reserve Now
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}

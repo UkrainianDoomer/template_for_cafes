@@ -1,3 +1,11 @@
+:root {
+
+  --brand-accent: #FF8C42;
+  --brand-accent-light: #FFD369;
+  --text-light: #FFFFFF;
+  --text-dark: #222222
+}
+
 .hero {
     position: relative;
     height: 100vh;
@@ -68,7 +76,7 @@
   position: relative;
   font-size: 1.4rem;
   font-weight: 400;
-  color: #FFD369;
+  color: var(--text-light);
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
@@ -83,7 +91,7 @@
   left: 0;
   height: 3px;
   width: 0%;
-  background-color: #f5edf0;
+  background-color: var(--brand-accent);
   transition: width 0.3s ease;
   left: 50%;
   transform: translateX(-50%);
@@ -100,11 +108,25 @@
 .meal-item:hover {
   transform: translateX(5px);
   font-weight: bold;
-  color: #FF8C42;
+  color: var(--brand-accent-light);
 }
 
 .arrow {
   margin-left: 10px;
   font-size: 1.2rem;
-  color: #f5edf0;
+  color: var(--brand-accent);
+}
+
+/* Themes */
+
+.theme-dark .meal-item {
+  color: var(--text-light);
+}
+
+.theme-light .meal-item {
+  color: var(--text-dark);
+}
+
+.theme-accent .meal-item {
+  color: var(--brand-accent);
 }

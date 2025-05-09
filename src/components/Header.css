@@ -34,7 +34,6 @@ header {
   header .nav-bar button:hover {
     background-color: #FFD369;
     color: #1E1E1E;
-    font-weight: bold;
   }
   
   header .nav-bar .reservation-btn {

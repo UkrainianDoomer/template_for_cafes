@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useRestaurant } from '../RestaurantContext';
 import './Header.css';
 
@@ -7,7 +7,7 @@ const Header = () => {
   const {id, name} = useRestaurant();
 
   return (
-  <header>
+  <header id='header'>
     <div className="logo-text">
       <NavLink to={`/place/${id}`}><h1>{name ?? 'Restaurant Name'}</h1></NavLink>
     </div>
