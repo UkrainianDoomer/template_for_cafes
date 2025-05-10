@@ -31,7 +31,7 @@ export default function Hero() {
   };
 
   return (
-    <section className={`hero theme-${theme}`}>
+    <section className={`hero theme-${theme}`} id="hero">
       {MealSlides.map((meal, i) => (
         <img
           key={meal.id}

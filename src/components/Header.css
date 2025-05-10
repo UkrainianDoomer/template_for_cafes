@@ -90,9 +90,8 @@ header {
     display: flex;
   }
 
-  header .nav-bar NavLink {
-    display: inline-block;
-    width: 100%;
+  header .nav-bar link {
+    width: 90%;
     font-size: 1rem;
     padding: 12px;
   }

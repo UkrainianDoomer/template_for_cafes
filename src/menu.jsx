@@ -18,7 +18,7 @@ function Menu() {
   return (
     <>
       <Header />
-      <main className='menu-wrapper'>
+      <main className='menu-wrapper' id="menu">
         <h2 className="menu-title">Our Gallery</h2>
 
         {groupedByType.map(({ id, name, items }) => (

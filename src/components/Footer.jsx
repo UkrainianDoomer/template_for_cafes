@@ -10,8 +10,8 @@ export default function Footer() {
         {/* Contact Info */}
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p>Phone: +48 886-463-154</p>
-          <p>Email: contact@restaurant.com</p>
+          <p>Phone: +48 888-888-888</p>
+          <p>Email: contact@ourmail.com</p>
           <p>123 Food Street,<br/>Flavor Town</p>
         </div>
 

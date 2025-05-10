@@ -111,35 +111,6 @@ body {
 
 
 @media (max-width: 768px) {
-
-  /* ===== Header ===== */
-  header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 10px;
-    gap: 10px;
-  }
-
-  header .logo-text {
-    order: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  header .logo-img {
-    order: 2;
-    display: flex;
-    justify-content: center;
-  }
-
-  header .logo-img img {
-    max-width: 80px;
-    height: auto;
-    margin-top: 5px;
-  }
   /* ===== Main Content Wrapper ===== */
   .wrapper {
     padding: 1rem;
