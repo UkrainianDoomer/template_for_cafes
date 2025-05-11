@@ -37,7 +37,7 @@ export default function Hero() {
           key={meal.id}
           src={meal.img}
           alt={meal.name}
-          className={`hero-bg ${i === currentIndex ? "active" : ""}`}
+          className={`hero-bg ${i === currentIndex ? "active" : ""} image-${i+1}`}
         />
       ))}
 

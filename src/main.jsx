@@ -5,6 +5,8 @@ import { RestaurantProvider } from './RestaurantContext.jsx';
 import Menu from './menu.jsx'
 import App from './App.jsx';
 import NotFound from './components/NotFound.jsx';
+import './styles/global.css'
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 function WithRestaurant() {
   return <RestaurantProvider><Outlet/></RestaurantProvider>;
@@ -13,6 +15,7 @@ function WithRestaurant() {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
+        <ScrollToTop />
         <Routes>
           <Route element={<WithRestaurant/>}>
             <Route path="/place/:id/menu" element={<Menu />} />

@@ -130,3 +130,66 @@
 .theme-accent .meal-item {
   color: var(--brand-accent);
 }
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+  }
+
+  .image-1 {
+    object-position: 75% center; /* shift upward slightly */
+  }
+  .image-3 {
+    object-position: 59% center; /* shift upward slightly */
+  }
+  .image-4 {
+    object-position: 55% center; /* shift upward slightly */
+  }
+  .image-5 {
+    object-position: 51% center; /* shift upward slightly */
+  }
+
+  .hero-overlay {
+    top: 15%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    width: 90%;
+    left: 50%;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+    max-width: 90%;
+  }
+
+  .meal-selector {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    justify-content: center;
+    width: 90%;
+}
+
+  .meal-item {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    text-align: center;
+    min-width: 70px;
+    white-space: nowrap;
+  }
+
+  .arrow {
+    font-size: 0.9rem;
+  }
+}

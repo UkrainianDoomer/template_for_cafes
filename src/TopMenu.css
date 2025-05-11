@@ -81,3 +81,27 @@
     background-color: #e04a50;
   }
   
+  @media (max-width: 600px) {
+  .topmenu h2 {
+    font-size: 1.8rem;
+  }
+
+  .topmenu p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .menu-items {
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .image-wrapper {
+    max-width: 180px;
+  }
+
+  .more-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+}

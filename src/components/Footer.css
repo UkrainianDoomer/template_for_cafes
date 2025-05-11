@@ -101,10 +101,50 @@ footer {
     color: #bbb;
   }
   
-  /* Mobile tweaks */
-  @media (max-width: 600px) {
-    .subscribe-form {
-      flex-direction: column;
-    }
+@media (max-width: 1100px) {
+  .subscribe-form {
+    flex-direction: column;
+    align-items: stretch;
   }
+
+  .subscribe-form input {
+    width: 100%;
+  }
+
+  .subscribe-form button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    padding: 1.5rem 1rem;
+    background-attachment: scroll;
+  }
+
+  footer .footer-content p {
+    font-size: 0.95rem;
+    margin: 6px 0;
+  }
+
+  .map-container iframe {
+    height: 200px;
+    width: 100%;
+  }
+
+  .map-container {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+}
   
