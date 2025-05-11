@@ -6,7 +6,7 @@ export default function HighlightSection() {
     return (
       <section className="highlight-section">
         <div className="highlight-image">
-          <img src={leftimg} alt="Dish Left" />
+          <img src={leftimg} alt="Dish Left" loading="lazy" />
         </div>
   
         <div className="highlight-text">

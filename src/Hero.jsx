@@ -34,6 +34,7 @@ export default function Hero() {
     <section className={`hero theme-${theme}`} id="hero">
       {MealSlides.map((meal, i) => (
         <img
+          loading="lazy" 
           key={meal.id}
           src={meal.img}
           alt={meal.name}
