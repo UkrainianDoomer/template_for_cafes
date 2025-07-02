@@ -1,12 +1,14 @@
-import leftimg from '../assets/images/meat2.jpg'
-import rightimg from '../assets/images/meat.jpg'
 import './HighlightSection.css'
+import Image from './Image';
 
 export default function HighlightSection() {
+  const leftimg = "meat2.jpg";
+  const rightimg = "avokado.jpg";
+
     return (
       <section className="highlight-section">
         <div className="highlight-image">
-          <img src={leftimg} alt="Dish Left" loading="lazy" />
+          <Image src={`/cafemenu/${leftimg.startsWith('/') ? leftimg.slice(1) : leftimg}`} alt="Dish Left" loading="lazy" />
         </div>
   
         <div className="highlight-text">
@@ -16,12 +18,12 @@ export default function HighlightSection() {
             Whether you're craving tradition or innovation, we've got something to satisfy every soul.
           </p>
           <p>
-            Come for the food, stay for the atmosphere. We don’t just cook—we create culinary stories.
+            Come for the food, stay for the atmosphere. We don’t just cook — we create culinary stories.
           </p>
         </div>
   
         <div className="highlight-image">
-          <img src={rightimg} alt="Dish Right" />
+          <Image src={`/cafemenu/${rightimg.startsWith('/') ? rightimg.slice(1) : rightimg}`} alt="Dish Right" loading="lazy" />
         </div>
       </section>
     );

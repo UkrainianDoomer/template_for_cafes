@@ -3,9 +3,10 @@ import './Hero.css'
 import { Link } from "react-router-dom";
 import { useRestaurant } from "./RestaurantContext";
 import { MealSlides } from "./RestaurantContext";
+import Image from "./components/Image";
 
 export default function Hero() {
-  const {id, name} = useRestaurant();
+  const {id} = useRestaurant();
 
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,10 +34,10 @@ export default function Hero() {
   return (
     <section className={`hero theme-${theme}`} id="hero">
       {MealSlides.map((meal, i) => (
-        <img
-          loading="lazy" 
+        <Image
+          loading="lazy"
           key={meal.id}
-          src={meal.img}
+          src={`/cafemenu/slider/${meal.img.startsWith('/') ? meal.img.slice(1) : meal.img}`}
           alt={meal.name}
           className={`hero-bg ${i === currentIndex ? "active" : ""} image-${i+1}`}
         />

@@ -11,7 +11,7 @@ const HighlightSection = React.lazy(() => import('./components/HighlightSection'
 
 
 function App() {
-  const { id, name } = useRestaurant()
+  const { name } = useRestaurant()
 
   useEffect(() => {
     document.title = name;

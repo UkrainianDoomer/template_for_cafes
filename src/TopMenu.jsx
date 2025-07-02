@@ -1,15 +1,13 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import MenuItem from "./MenuItem"
-import chach from './assets/chach.jfif';
-import salad from './assets/salad.jpg';
 import { GetTopImages } from "./menu";
 import { useRestaurant } from "./RestaurantContext";
 
 import './TopMenu.css'
 
 export default function TopMenu() {
-    const {id, name} = useRestaurant();
+    const { id } = useRestaurant();
 
     const imgs = GetTopImages();
 
@@ -19,7 +17,7 @@ export default function TopMenu() {
             <p>Discover our top {imgs.length} meals:</p>
             <div className="menu-items">
                 {imgs.map((item, i) => (
-                    <MenuItem key={i} src={item.src} caption={item.caption} index={i} />
+                    <MenuItem key={i} src={item.src} caption={item.caption} index={i} price={item.price} />
                 ))}
             </div>
             <div className="menu-footer">

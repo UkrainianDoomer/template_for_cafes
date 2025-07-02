@@ -38,8 +38,8 @@ html {
     justify-content: center;
     flex-direction: column;
 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/src/assets/main-bck.jpeg");
-    background-color: #1d2d44;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://ik.imagekit.io/20denysko05/cafemenu/main-bck.jpeg?updatedAt=1751472476926");
+    background-color: #443b2e;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

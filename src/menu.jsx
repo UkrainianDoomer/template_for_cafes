@@ -6,7 +6,7 @@ import MenuItem from './MenuItem';
 import { MealSlides } from './RestaurantContext';
 
 import './menu.css';
-import { menuItems } from './menuData';
+import { menuItems } from './menuData.js';
 
 
 // TODO: Divide Menu on types: Breakfast, Lunch, Dinner, Dessert and Drinks, 
@@ -26,11 +26,12 @@ function Menu() {
             <h3 className="meal-type-title">{name}</h3>
             <div className="gallery">
               {items.map((item, i) => (
-                <MenuItem key={i} src={item.src} caption={item.caption} />
+                <MenuItem key={i} src={item.src} caption={item.caption} price={item.price} />
               ))}
             </div>
           </section>
         ))}
+        
       </main>
 
       <Form />
@@ -49,7 +50,7 @@ export function GroupedByType() {
 
 export function GetTopImages() {
   const images = GroupedByType()
-    .map(({id, name, items}) => ({
+    .map(({items}) => ({
       src: items[0].src,
       caption: items[0].caption
   }) )
