@@ -49,8 +49,8 @@ export function GroupedByType() {
 export function GetTopImages() {
   const images = GroupedByType()
     .map(({items}) => ({
-      src: items[0].src,
-      caption: items[0].caption
+      src: items[items.length-1].src,
+      caption: items[items.length-1].caption
   }) )
   
   return images;

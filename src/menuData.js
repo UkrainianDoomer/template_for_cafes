@@ -20,6 +20,6 @@ export const menuItems = [
   { src: 'sushi3.jpg', caption: 'Sushi', type: 'obiad', price: 40 },
   { src: 'taco.jpg', caption: 'Taco', type: 'lunch', price: 20 },
   { src: 'vegetables.jpg', caption: 'Warzywa', type: 'lunch', price: 16 }
-];
+].sort((a, b) => a.caption.localeCompare(b.caption, 'pl'));
 
 export const menuBackground = { src: 'restaurant.jpg', caption: 'Restauracja' };

@@ -18,7 +18,7 @@ export default function HighlightSection() {
         Niezależnie od tego, czy masz ochotę na tradycję czy innowację, mamy coś dla każdego.
         </p>
         <p>
-        Przyjdź na jedzenie, zostań dla atmosfery. Nie tylko gotujemy — tworzymy kulinarne historie.
+        Zachwyć się smakiem, zostań dla atmosfery. U nas jedzenie to więcej niż smak — to opowieść.
         </p>
       </div>
 

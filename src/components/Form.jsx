@@ -34,7 +34,7 @@ export default function Form() {
                 id="email"
                 name="email"
                 type="email"
-                placeholder="twoj@mail.com"
+                placeholder="twoj@email.com"
                 required
               />
             </div>

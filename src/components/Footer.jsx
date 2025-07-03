@@ -3,10 +3,10 @@ import './Footer.css';
 import { useRestaurant } from '../RestaurantContext';
 
 export default function Footer() {
-  const {name} = useRestaurant();
+  const {id, name} = useRestaurant();
   return (
     <footer id="footer">
-      <div className="footer-container">
+      <div className="footer-container" id="contact">
         {/* Contact Info */}
         <div className="footer-section">
           <h3>Kontakt</h3>
@@ -24,17 +24,17 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div className="footer-section">
-          <h3>Szybkie linki</h3>
+          <h3>Menu na skróty</h3>
           <ul>
-            <li><a href="/#form">Rezerwacje</a></li>
-            <li><a href="/#menu">Menu</a></li>
-            <li><a href="/#contact">Lokalizacje</a></li>
+            <li><a href={`/place/${id}#form`}>Rezerwacje</a></li>
+            <li><a href={`/place/${id}/menu`}>Menu</a></li>
+            <li><a href={`/place/${id}#contact`}>Lokalizacje</a></li>
           </ul>
         </div>
 
         {/* Social & Subscribe */}
         <div className="footer-section">
-          <h3>Bądź na bieżąco</h3>
+          <h3>Dołącz do nas</h3>
           <div className="social-icons">
             <a href="#"><i className="fab fa-facebook-f"/></a>
             <a href="#"><i className="fab fa-instagram"/></a>
@@ -42,13 +42,13 @@ export default function Footer() {
           </div>
           <form className="subscribe-form">
             <input type="email" placeholder="Twój email" required />
-            <button type="submit">Dołącz</button>
+            <button type="submit">Zapisz się</button>
           </form>
         </div>
       </div>
 
       {/* Embedded map */}
-      <div className="map-container">
+      <div className="map-container" id="map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39084.15672226012!2d20.972932577133182!3d52.247746512262935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc661b455407%3A0x2019a146fb49c9be!2z0JrQvtGA0L7Qu9C10LLRgdC60LjQuSDQt9Cw0LzQvtC6!5e0!3m2!1sru!2spl!4v1746298057504!5m2!1sru!2spl"
         width="100%"
