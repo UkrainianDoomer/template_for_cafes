@@ -7,25 +7,24 @@ export default function HighlightSection() {
 
     return (
       <section className="highlight-section">
-        <div className="highlight-image">
-          <Image src={`/cafemenu/${leftimg.startsWith('/') ? leftimg.slice(1) : leftimg}`} alt="Dish Left" loading="lazy" />
-        </div>
-  
-        <div className="highlight-text">
-          <h2>Our Passion on a Plate</h2>
-          <p>
-            Crafted with love, our dishes combine local ingredients with international flavors.
-            Whether you're craving tradition or innovation, we've got something to satisfy every soul.
-          </p>
-          <p>
-            Come for the food, stay for the atmosphere. We don’t just cook — we create culinary stories.
-          </p>
-        </div>
-  
-        <div className="highlight-image">
-          <Image src={`/cafemenu/${rightimg.startsWith('/') ? rightimg.slice(1) : rightimg}`} alt="Dish Right" loading="lazy" />
-        </div>
+      <div className="highlight-image">
+        <Image src={`/cafemenu/${leftimg.startsWith('/') ? leftimg.slice(1) : leftimg}`} alt="Danie po lewej" loading="lazy" />
+      </div>
+
+      <div className="highlight-text">
+        <h2>Nasza pasja na talerzu</h2>
+        <p>
+        Przygotowane z miłością, nasze dania łączą lokalne składniki z międzynarodowymi smakami.
+        Niezależnie od tego, czy masz ochotę na tradycję czy innowację, mamy coś dla każdego.
+        </p>
+        <p>
+        Przyjdź na jedzenie, zostań dla atmosfery. Nie tylko gotujemy — tworzymy kulinarne historie.
+        </p>
+      </div>
+
+      <div className="highlight-image">
+        <Image src={`/cafemenu/${rightimg.startsWith('/') ? rightimg.slice(1) : rightimg}`} alt="Danie po prawej" loading="lazy" />
+      </div>
       </section>
     );
   }
-  

@@ -11,12 +11,11 @@ export const TextTheme = {
 };
   
 export const MealSlides = [
-
-  { id: "breakfast", name: "Breakfast", img: "breakfast.jpg", priority: TextTheme.DARK   },
-  { id: "lunch", name: "Lunch", img: "lunch.jpg", priority: TextTheme.DARK               },
-  { id: "dinner", name: "Dinner", img: "dinner.jpg", priority: TextTheme.DARK            },
-  { id: "dessert", name: "Dessert", img: "dessert.jpg", priority: TextTheme.LIGHT         },
-  { id: "drinks", name: "Drinks", img: "drinks.jpg", priority: TextTheme.DARK            }
+    { id: "sniadanie", name: "Śniadanie", img: "breakfast.jpg", priority: TextTheme.DARK   },
+    { id: "lunch", name: "Lunch", img: "lunch.jpg", priority: TextTheme.DARK               },
+    { id: "obiad", name: "Obiad", img: "dinner.jpg", priority: TextTheme.DARK              },
+    { id: "deser", name: "Deser", img: "dessert.jpg", priority: TextTheme.LIGHT            },
+    { id: "napoje", name: "Napoje", img: "drinks.jpg", priority: TextTheme.DARK            }
 ];
 
 export function RestaurantProvider({ children }) {

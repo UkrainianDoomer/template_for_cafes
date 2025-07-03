@@ -44,8 +44,8 @@ export default function Hero() {
       ))}
 
       <div className="hero-overlay">
-        <h1 className="hero-title">Where Flavor Meets Soul</h1>
-        <p className="hero-subtitle">Savor the moment. Explore our handcrafted meals, made with love and local charm.</p>
+        <h1 className="hero-title">Gdzie smak spotyka duszę</h1>
+        <p className="hero-subtitle">Delektuj się chwilą. Odkryj nasze ręcznie przygotowane posiłki, tworzone z miłością i lokalnym charakterem.</p>
       </div>
 
       <div className="meal-selector">

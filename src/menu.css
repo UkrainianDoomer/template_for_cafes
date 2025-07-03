@@ -9,26 +9,18 @@ html {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
     width: 100%;
     max-width: 1100px;
+
+    scroll-margin-top: 80px;
   }
-/*   
-.menu-section {
-    width: 100%;
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 1rem;
-    border-radius: 16px;
-    background-color: #fef6f6;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  } */
   
-  .meal-type-title {
-    text-align: center;
-    font-size: 2.2rem;
-    color: #ff8c42;
-    margin-bottom: 1rem;
-    font-weight: bold;
-  }
-    
+.meal-type-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #ff8c42;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+  
 .menu-wrapper {
     padding-top: 120px;
     background-color: #f5edf0;

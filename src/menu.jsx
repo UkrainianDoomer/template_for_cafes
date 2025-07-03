@@ -9,8 +9,6 @@ import './menu.css';
 import { menuItems } from './menuData.js';
 
 
-// TODO: Divide Menu on types: Breakfast, Lunch, Dinner, Dessert and Drinks, 
-// for links in main menu 
 function Menu() { 
 
   const groupedByType = GroupedByType();
@@ -19,25 +17,25 @@ function Menu() {
     <>
       <Header />
       <main className='menu-wrapper' id="menu">
-        <h2 className="menu-title">Our Gallery</h2>
+      <h2 className="menu-title">Nasza Galeria</h2>
 
-        {groupedByType.map(({ id, name, items }) => (
-          <section key={id} id={id} className="menu-section">
-            <h3 className="meal-type-title">{name}</h3>
-            <div className="gallery">
-              {items.map((item, i) => (
-                <MenuItem key={i} src={item.src} caption={item.caption} price={item.price} />
-              ))}
-            </div>
-          </section>
-        ))}
-        
+      {groupedByType.map(({ id, name, items }) => (
+        <section key={id} id={id} className="menu-section">
+        <a href={`#${id}`}><h3 className="meal-type-title">{name}</h3></a>
+        <div className="gallery">
+          {items.map((item, i) => (
+          <MenuItem key={i} src={item.src} caption={item.caption} price={item.price} />
+          ))}
+        </div>
+        </section>
+      ))}
+      
       </main>
 
       <Form />
       <Footer />
     </>
-  );
+    );
   }
 
 export function GroupedByType() {

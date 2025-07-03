@@ -3,46 +3,46 @@ import './Footer.css';
 import { useRestaurant } from '../RestaurantContext';
 
 export default function Footer() {
-  const {id, name} = useRestaurant();
+  const {name} = useRestaurant();
   return (
     <footer id="footer">
       <div className="footer-container">
         {/* Contact Info */}
         <div className="footer-section">
-          <h3>Contact Us</h3>
-          <p>Phone: +48 888-888-888</p>
-          <p>Email: contact@ourmail.com</p>
-          <p>123 Food Street,<br/>Flavor Town</p>
+          <h3>Kontakt</h3>
+          <p>Telefon: +48 888-888-888</p>
+          <p>Email: kontakt@ourmail.com</p>
+          <p>ul. Food 123,<br/>Flavor Town</p>
         </div>
 
         {/* Opening Hours */}
         <div className="footer-section">
-          <h3>Opening Hours</h3>
-          <p>Mon–Fri: 8am – 10pm</p>
-          <p>Sat–Sun: 9am – 11pm</p>
+          <h3>Godziny otwarcia</h3>
+          <p>Pon–Pt: 8:00 – 22:00</p>
+          <p>Sob–Ndz: 9:00 – 23:00</p>
         </div>
 
         {/* Quick Links */}
         <div className="footer-section">
-          <h3>Quick Links</h3>
+          <h3>Szybkie linki</h3>
           <ul>
-            <li><a href="/#form">Reservations</a></li>
+            <li><a href="/#form">Rezerwacje</a></li>
             <li><a href="/#menu">Menu</a></li>
-            <li><a href="/#contact">Locations</a></li>
+            <li><a href="/#contact">Lokalizacje</a></li>
           </ul>
         </div>
 
         {/* Social & Subscribe */}
         <div className="footer-section">
-          <h3>Stay Connected</h3>
+          <h3>Bądź na bieżąco</h3>
           <div className="social-icons">
             <a href="#"><i className="fab fa-facebook-f"/></a>
             <a href="#"><i className="fab fa-instagram"/></a>
             <a href="#"><i className="fab fa-twitter"/></a>
           </div>
           <form className="subscribe-form">
-            <input type="email" placeholder="Your email" required />
-            <button type="submit">Join</button>
+            <input type="email" placeholder="Twój email" required />
+            <button type="submit">Dołącz</button>
           </form>
         </div>
       </div>
@@ -57,12 +57,12 @@ export default function Footer() {
         allowFullScreen=""
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        title="Map"
+        title="Mapa"
     ></iframe>
       </div>
 
       <div className="footer-credits">
-        &copy; {new Date().getFullYear()} {name}. All rights reserved.
+        &copy; {new Date().getFullYear()} {name}. Wszelkie prawa zastrzeżone.
       </div>
     </footer>
   );

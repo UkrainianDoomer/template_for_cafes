@@ -13,8 +13,8 @@ export default function TopMenu() {
 
     return (
         <section className="topmenu">
-            <h2>Welcome to Our Paradise</h2>
-            <p>Discover our top {imgs.length} meals:</p>
+            <h2>Witamy w Naszym Raju</h2>
+            <p>Odkryj nasze {imgs.length} najlepszych dań:</p>
             <div className="menu-items">
                 {imgs.map((item, i) => (
                     <MenuItem key={i} src={item.src} caption={item.caption} index={i} price={item.price} />
@@ -22,7 +22,7 @@ export default function TopMenu() {
             </div>
             <div className="menu-footer">
                 <Link to={`/place/${id}/menu`} className="more-button">
-                    Explore Full Menu →
+                    Zobacz pełne menu →
                 </Link>
             </div>
         </section>

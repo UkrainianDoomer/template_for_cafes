@@ -3,27 +3,27 @@ import './Form.css';
 import { useRestaurant } from '../RestaurantContext';
 
 export default function Form() {
-    const {id, name} = useRestaurant();
+    const {id} = useRestaurant();
   return (
     <section className="form-section" id="form">
       <div className="form-card">
-        <h2 className="form-title">Make a Reservation</h2>
+        <h2 className="form-title">Zarezerwuj stolik</h2>
         <form
           action="https://formsubmit.co/14af3c499b63487baff858f327e39249"
           method="POST"
         >
-          {/* Honeypot to deter bots */}
+          {/* Ukryte pole do ochrony przed botami */}
           <input type="hidden" name="_next" value={`http://localhost:5173/place/${id}`} />
           <input name="_formsubmit_id" type="text" style={{ display: 'none' }} />
 
           <div className="form-grid">
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Imię i nazwisko</label>
               <input
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Your full name"
+                placeholder="Twoje imię i nazwisko"
                 required
               />
             </div>
@@ -34,33 +34,33 @@ export default function Form() {
                 id="email"
                 name="email"
                 type="email"
-                placeholder="you@domain.com"
+                placeholder="twoj@mail.com"
                 required
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="phone">Phone</label>
+              <label htmlFor="phone">Telefon</label>
               <input
                 id="phone"
                 name="phone"
                 type="tel"
-                placeholder="+1 (555) 123-4567"
+                placeholder="+48 123 456 789"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="date">Date</label>
+              <label htmlFor="date">Data</label>
               <input id="date" name="date" type="date" required />
             </div>
 
             <div className="form-group">
-              <label htmlFor="time">Time</label>
+              <label htmlFor="time">Godzina</label>
               <input id="time" name="time" type="time" required />
             </div>
 
             <div className="form-group">
-              <label htmlFor="guests">Guests</label>
+              <label htmlFor="guests">Liczba gości</label>
               <input
                 id="guests"
                 name="guests"
@@ -74,7 +74,7 @@ export default function Form() {
           </div>
 
           <button type="submit" className="form-submit-btn">
-            Reserve Now
+            Zarezerwuj
           </button>
         </form>
       </div>
