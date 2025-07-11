@@ -1,3 +1,6 @@
+Clone of repo with my bro [Aleksander](https://github.com/UkrainianDoomer).
+
+Original repo: https://github.com/UkrainianDoomer/template_for_cafes
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
