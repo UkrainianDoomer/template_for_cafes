@@ -3,6 +3,8 @@ import './App.css'
 import Header from './components/Header' 
 import { useRestaurant } from './RestaurantContext'
 import Spinner from './components/Spinner'
+import Video from './components/Video'
+import VideoBlock from './VideoBlock'
 const Hero = React.lazy(() => import('./Hero'))
 const Form = React.lazy(() => import('./components/Form'))
 const Footer = React.lazy(() => import('./components/Footer'))
@@ -46,6 +48,7 @@ function App() {
         <Header />
         <Hero />
         <HighlightSection />
+        <VideoBlock />
         <TopMenu />
         <Form />
         <Footer />
