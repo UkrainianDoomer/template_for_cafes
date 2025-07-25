@@ -7,6 +7,7 @@ import App from './App.jsx';
 import NotFound from './components/NotFound.jsx';
 import './styles/global.css'
 import ScrollToTop from './components/ScrollToTop.jsx';
+import { Analytics } from '@vercel/analytics/react';
 
 function WithRestaurant() {
   return <RestaurantProvider><Outlet/></RestaurantProvider>;
@@ -24,5 +25,6 @@ createRoot(document.getElementById('root')).render(
           <Route path="*" element={<NotFound />} />
         </Routes>
     </Router>
+    <Analytics />
   </StrictMode>,
 )
