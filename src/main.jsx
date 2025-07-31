@@ -8,6 +8,7 @@ import NotFound from './components/NotFound.jsx';
 import './styles/global.css'
 import ScrollToTop from './components/ScrollToTop.jsx';
 import { Analytics } from '@vercel/analytics/react';
+import { Navigate } from "react-router-dom";
 
 function WithRestaurant() {
   return <RestaurantProvider><Outlet/></RestaurantProvider>;
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
     <Router>
         <ScrollToTop />
         <Routes>
+          <Route path="/" element={<Navigate to="/place/Savieno" replace />} />
           <Route element={<WithRestaurant/>}>
             <Route path="/place/:id/menu" element={<Menu />} />
             <Route path="/place/:id" element={<App />} />

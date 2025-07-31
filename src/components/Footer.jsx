@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="footer-section">
           <h3>Kontakt</h3>
           <p>Telefon: +48 888-888-888</p>
-          <p>Email: kontakt@ourmail.com</p>
+          <p>Email: dna.digital.structure.solutions@gmail.com</p>
           <p>ul. Food 123,<br/>Flavor Town</p>
         </div>
 

@@ -5,6 +5,7 @@ import { useRestaurant } from './RestaurantContext'
 import Spinner from './components/Spinner'
 import Video from './components/Video'
 import VideoBlock from './VideoBlock'
+import { Helmet } from 'react-helmet'
 const Hero = React.lazy(() => import('./Hero'))
 const Form = React.lazy(() => import('./components/Form'))
 const Footer = React.lazy(() => import('./components/Footer'))
@@ -45,6 +46,21 @@ function App() {
   return (
     <>
       <Suspense fallback={<Spinner />}>
+        <Helmet>
+          <title>{name} | Modern Bistro</title>
+          <meta name="description" content={`Welcome to ${name}, where taste meets elegance. Discover our menu, ambiance, and more!`} />
+          <meta property="og:title" content={`${name} | Modern Bistro`} />
+          <meta property="og:description" content={`Experience the best of ${name}. Reserve your table today!`} />
+          <meta property="og:image" content="/homepage.png" />
+          <meta property="og:type" content="restaurant" />
+          <meta property="og:locale" content="pl_PL" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={`${name} | Modern Bistro`} />
+          <meta name="twitter:description" content={`Enjoy a unique dining experience at ${name}.`} />
+          <meta name="twitter:image" content="/homepage.png" />
+          <meta name="theme-color" content="#f5e9dc" />
+          <link rel="icon" href="/favicon.svg" />
+        </Helmet>
         <Header />
         <Hero />
         <HighlightSection />
